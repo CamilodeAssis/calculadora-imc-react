@@ -1,11 +1,13 @@
+import { Level } from "../helpers/imc";
 
 type Props = {
     placeholder: string;
     field: number;
     setField: React.Dispatch<React.SetStateAction<number>>;
+    toShow: Level | null;
 }
 
-export const Input = ({ placeholder, field, setField }: Props) => {
+export const Input = ({ placeholder, field, setField, toShow }: Props) => {
 
 
     return (
@@ -14,6 +16,7 @@ export const Input = ({ placeholder, field, setField }: Props) => {
             placeholder={placeholder}
             value={field > 0 ? field : ''}
             onChange={e => setField(e.target.valueAsNumber)}
+            disabled={toShow ? true : false}
         />
     );
 }
